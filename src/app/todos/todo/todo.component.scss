@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  padding: .2em;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 10em;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  &__title {
+    font-size: 1.2em;
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+
+.body {
+  &__content {
+    padding: .2em;
+  }
+}
+
+
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+}

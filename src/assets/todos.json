@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Create repo",
+    "content": "Repo: https://github.com/Rachnerd/rabo-workshop",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "title": "Generate app",
+    "content": "ng new rabo-workshop --prefix=rb --style=scss",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "title": "Type Todo",
+    "content": "ng g c home\nng g c dashboard\n\nng g m todos\nng g c todos\nng g c todos/todo\n",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  }
+]

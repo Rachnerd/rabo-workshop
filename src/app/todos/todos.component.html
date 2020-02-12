@@ -1,0 +1,8 @@
+<rb-todo
+  *ngFor="let todo of todos; let i = index"
+  [todo]="todo"
+  [showContent]="openIndex == i"
+  (openContent)="openTodo(i)"
+  (closeContent)="closeTodo(i)"
+  (delete)="deleteTodo(i)"
+></rb-todo>

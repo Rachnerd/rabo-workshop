@@ -1,0 +1,14 @@
+<div class="header">
+  <input class="header__done" type="checkbox" [checked]="todo.done" />
+  <h4 class="header__title">{{todo.title}}</h4>
+  <button (click)="toggle()">{{ showContent ? 'Close' : 'Open'}}</button>
+</div>
+<ng-container *ngIf="showContent">
+  <div class="body">
+    <p class="body__content">{{todo.content}}</p>
+  </div>
+
+  <div class="footer">
+    <button (click)="deleteTodo()">Delete</button>
+  </div>
+</ng-container>
