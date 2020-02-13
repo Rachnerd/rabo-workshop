@@ -1,1 +1,4 @@
-<rb-todos></rb-todos>
+<rb-todos *ngIf="todos.length > 0; else noTodos" [todos]="todos" (deleteTodo)="deleteTodo($event)"></rb-todos>
+<ng-template #noTodos>
+  <p>No todos!</p>
+</ng-template>

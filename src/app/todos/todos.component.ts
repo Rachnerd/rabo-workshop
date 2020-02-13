@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from './shared/todos.model';
 
 @Component({
@@ -7,38 +7,23 @@ import { Todo } from './shared/todos.model';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
-  todos: Todo[] = [
-    {
-      id: '1',
-      content: 'HELLO',
-      title: 'WORLD',
-      createdAt: new Date(),
-      done: false
-    },
-    {
-      id: '2',
-      content: 'HELLO',
-      title: 'WORLD',
-      createdAt: new Date(),
-      done: false
-    }
-  ];
+  @Input()
+  todos: Todo[];
 
-  openIndex = -1;
+  @Output()
+  deleteTodo = new EventEmitter<number>()
+
+  openedTodo = undefined;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  openTodo(index: number) {
-    this.openIndex = index;
+  openTodo(todo: Todo) {
+    this.openedTodo = todo;
   }
 
-  closeTodo(index: number) {
-    this.openIndex = -1;
-  }
-
-  deleteTodo(index: number) {
-    this.todos.splice(index, 1);
+  closeTodo() {
+    this.openedTodo = undefined;
   }
 }
