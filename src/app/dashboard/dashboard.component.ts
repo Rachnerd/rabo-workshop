@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Todo } from '../todos/shared/todos.model';
+import { TodosService } from '../todos/shared/todos.service';
 
 @Component({
   selector: 'rb-dashboard',
@@ -10,16 +10,27 @@ import { Todo } from '../todos/shared/todos.model';
 export class DashboardComponent implements OnInit {
   todos: Todo[] = [];
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private todosService: TodosService) {}
 
+  /**
+   * Mind that this implementation is simplified and has some problems:
+   * - Not SPA proof.
+   * - Todos is not sharable.
+   */
   ngOnInit(): void {
-    this.httpClient
-      .get<Todo[]>('assets/todos.json')
-      .subscribe(todos => (this.todos = todos));
+    this.todosService.get().subscribe(
+      todos => (this.todos = todos),
+      error => console.error('Failed to get todos', error)
+    );
   }
 
   deleteTodo(todo: Todo) {
-    const index = this.todos.indexOf(todo);
-    this.todos.splice(index, 1);
+    this.todosService.delete(todo).subscribe(
+      _ => {
+        const index = this.todos.indexOf(todo);
+        this.todos.splice(index, 1);
+      },
+      error => console.error('Failed to delete todo', error)
+    );
   }
 }

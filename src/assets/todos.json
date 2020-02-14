@@ -15,9 +15,86 @@
   },
   {
     "id": "3",
-    "title": "Type Todo",
-    "content": "ng g c home<br />ng g c dashboard<br />ng g m todos<br />ng g c todos<br />ng g c todos/todo",
+    "title": "Generate modules/components",
+    "content": "<ul><li>ng g c home</li><li>ng g c dashboard</li><li>ng g m todos</li><li>ng g c todos</li><li>ng g c todos/todo</li></ul>",
     "createdAt": "2020-02-12T18:02:26.300Z",
     "done": true
+  },
+  {
+    "id": "4",
+    "title": "Configure modules",
+    "content": "<ul><li>Import `SharedModule` in `TodosModule` (feature module needs access to shared declarations)</li><li>Import `TodosModule` in `AppModule` (the app needs access to the feature)</li></ul>",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "id": "5",
+    "title": "Routing",
+    "content": "Setup routing in `/app/app-routing.module.ts` by assigning HomeComponent to '' and DashboardComponent to 'dashboard'",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "id": "6",
+    "title": "Create Todo data model",
+    "content": "Create `/app/todos/shared/todos.model.ts` with an exported interface called Todo",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "id": "7",
+    "title": "Implement Date Pipe",
+    "content": "Visualize the creation date of the todo in a dutch format (dd-mm-yyyy) using Angular's built-in Date pipe.",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "id": "8",
+    "title": "Implement TodoComponent",
+    "content": "<ul><li>Create `Todo` input binding</li><li>Implement the template</li><li>Identify the user interaction of the component and create EventEmitters for each<ul><li>openContent</li><li>closeContent</li><li>Delete</li></ul></li><li>Identify state that should be controlled by the parent<ul><li>showContent</li></ul></li></ul>",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "id": "9",
+    "title": "Render HTML in the content of a Todo",
+    "content": "Using `innerHTML` is a bad practice and a potential security risk. <ul><li>Create a SafeHtml Directive in the SharedModule `ng g d shared/safe-html`</li><li>Implement Angular's DomSanitizer to strip potential harmful/unexpected HTML</li><li>From now on use `[rbSafeHtml]` instead of `[innerHTML]`</li></ul>",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "id": "10",
+    "title": "Implement TodosComponent",
+    "content": "<ul><li>Create `Todo[] input binding</li><li>Implement the template by looping over todos with *ngFor and reference TodoComponent</li><li>Implement state for showing and hiding todo's content</li>Identify the user interaction of the component and create EventEmitters for each<ul><li>deleteTodo</li></ul></li><ul>",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "id": "11",
+    "title": "TodosService",
+    "content": "<ul><li>Create `app/todos/shared/todos.service.ts`</li><li>Implement `get` and `delete` (naive implementation)</li></ul>",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "id": "12",
+    "title": "Dashboard",
+    "content": "<ul><li>Inject `TodosService`</li><li>Fetch todos and pass it to the TodosComponent</li><li>Implement delete event of TodosComponent</li></ul>",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": true
+  },
+  {
+    "id": "13",
+    "title": "Creating todo lanes (kanban style)",
+    "content": "Separate the todos by creating 2 lanes for done and not done todos in the dashboard",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": false
+  },
+  {
+    "id": "14",
+    "title": "Data streams (RxJS)",
+    "content": "Rewrite the TodosService so that it supports multiple subscribers without triggering multiple calls",
+    "createdAt": "2020-02-12T18:02:26.300Z",
+    "done": false
   }
 ]
